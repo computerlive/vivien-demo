@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivien Ducros — Entrepreneur</title>
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --accent: #e94560;
+      --accent2: #0f3460;
+      --light: #f5f5f5;
+      --text: #333;
+      --muted: #777;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent2) 100%);
+      color: #fff;
+      padding: 100px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(233,69,96,.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 32px rgba(233,69,96,.4);
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .hero .tagline {
+      font-size: 1.2rem;
+      opacity: .85;
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .badge {
+      background: rgba(255,255,255,.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── SECTION ── */
+    section {
+      padding: 72px 0;
+    }
+    section:nth-child(even) {
+      background: #fff;
+    }
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    p {
+      color: #555;
+      max-width: 700px;
+    }
+
+    /* ── VENTURES GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.07);
+      border-top: 4px solid var(--accent);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+    }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    /* ── QUOTE ── */
+    .quote-block {
+      background: linear-gradient(135deg, var(--primary), var(--accent2));
+      color: #fff;
+      border-radius: 20px;
+      padding: 48px 40px;
+      margin: 48px 0;
+      position: relative;
+    }
+    .quote-block::before {
+      content: '\201C';
+      font-size: 8rem;
+      font-family: Georgia, serif;
+      color: rgba(233,69,96,.4);
+      position: absolute;
+      top: -10px;
+      left: 30px;
+      line-height: 1;
+    }
+    .quote-block blockquote {
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+    }
+    .quote-block cite {
+      display: block;
+      margin-top: 16px;
+      font-style: normal;
+      font-size: .9rem;
+      opacity: .7;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .stat {
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── LINKS ── */
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.15);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 36px 24px;
+      font-size: .85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-avatar">V</div>
+  <h1>Vivien Ducros</h1>
+  <p class="tagline">Serial Entrepreneur &amp; Community Builder — reimagining the human experience</p>
+  <div class="badge-row">
+    <span class="badge">🚀 Founder</span>
+    <span class="badge">🌍 Community Builder</span>
+    <span class="badge">⚡ Side-Business Addict</span>
+    <span class="badge">🎙️ Indie Maker</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <div class="container">
+    <p class="section-label">About</p>
+    <h2>Who is Vivien Ducros?</h2>
+    <p>
+      Vivien Ducros is a French entrepreneur who thrives at the intersection of innovation, community, and sustainability.
+      With an insatiable curiosity and a bias for action, Vivien has launched more than 20 side businesses — earning him the label <strong>"slasheur serial side businesseur"</strong> in the French indie-maker community.
+    </p>
+    <br />
+    <p>
+      His work spans ed-tech, community living, and impact ventures. He is driven by a single overarching mission: <strong>reimagining the human experience</strong> — building systems and spaces where people can live with more freedom, connection, and care for the planet.
+    </p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Side Businesses</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Active Ventures</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">#1</div>
+        <div class="stat-label">Podcast Feature</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Ideas in Progress</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES -->
+<section>
+  <div class="container">
+    <p class="section-label">Ventures</p>
+    <h2>Key Projects &amp; Companies</h2>
+    <p>From ed-tech platforms to intentional living communities, Vivien consistently turns bold ideas into real-world ventures.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🏡</div>
+        <h3>Nexus Villages</h3>
+        <p>Founder &amp; CEO. Building intentional communities that value <strong>freedom, connection, and care for the earth</strong>. Nexus reimagines how humans can live together sustainably and meaningfully.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>Evolum</h3>
+        <p>Co-Founder &amp; CEO (alongside Alexia Deboffe and Youcef El Kamel). An ed-tech venture focused on unlocking human potential through innovative learning experiences.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Serial Side Projects</h3>
+        <p>Over 20 side businesses launched throughout his entrepreneurial career. Vivien sees each project as an experiment — a way to learn, create value, and push boundaries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section>
+  <div class="container">
+    <div class="quote-block">
+      <blockquote>
+        The best way to predict the future is to build it — one side project at a time.
+      </blockquote>
+      <cite>— Vivien Ducros, INDIE MAKERS Podcast, Ep. #95</cite>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section>
+  <div class="container">
+    <p class="section-label">Philosophy</p>
+    <h2>Entrepreneurial DNA</h2>
+    <p>
+      For Vivien, entrepreneurship isn't just about building companies — it's a way of life. He embraces the "slash" identity:
+      creator, builder, thinker, and community architect all at once. His approach combines:
+    </p>
+    <div class="grid" style="margin-top:28px">
+      <div class="card">
+        <div class="card-icon">🔬</div>
+        <h3>Experimentation</h3>
+        <p>Launch fast, learn fast. Each side project is a hypothesis about how the world could work better.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Community First</h3>
+        <p>Real impact happens through people. Whether at Nexus Villages or Evolum, community is always at the core.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Sustainable Vision</h3>
+        <p>Growth without purpose is noise. Vivien builds with the long game in mind — for people and the planet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section>
+  <div class="container">
+    <p class="section-label">Connect</p>
+    <h2>Find Vivien Online</h2>
+    <p>Follow his journey across ventures, podcasts, and social media.</p>
+    <div class="link-row">
+      <a class="link-btn btn-primary" href="https://vivienducros.com" target="_blank">🌐 vivienducros.com</a>
+      <a class="link-btn btn-secondary" href="https://x.com/DucrosVivien" target="_blank">𝕏 @DucrosVivien</a>
+      <a class="link-btn btn-outline" href="https://indiemakers.fr/episode/95-vivien-ducros" target="_blank">🎙️ INDIE MAKERS Ep. #95</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built with ❤️ to celebrate the work of <a href="https://vivienducros.com" target="_blank">Vivien Ducros</a> &mdash; Entrepreneur, Maker &amp; Community Builder.</p>
+</footer>
+
+</body>
+</html>
